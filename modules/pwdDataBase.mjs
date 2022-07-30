@@ -1,4 +1,4 @@
-export const dataBase = [
+const dataBase = [
     ["12345"],
     ["101010"],
     ["111111"],
@@ -2500,3 +2500,7 @@ export const dataBase = [
     ["zurzir"],
     ["zxcv"]
   ]
+
+  const name = "gab";
+
+  export { dataBase, name };

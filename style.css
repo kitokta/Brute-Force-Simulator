@@ -11,3 +11,11 @@ body {
     align-items: center;
 }
 
+#content {
+    margin-top: -200px;
+}
+
+.hide {
+    visibility: hidden;
+    pointer-events: none;
+}
