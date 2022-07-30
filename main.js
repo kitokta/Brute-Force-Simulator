@@ -4,8 +4,8 @@ const password = document.getElementById("password");
 
 testBtn.addEventListener("click", () => {
   const text = document.getElementById("value");
-  const contentBox = document.getElementById("content")
-  if (text!=null) contentBox.removeChild(text);
+  const valueBox = document.getElementById("value-box");
+  if (text != null) contentBox.removeChild(text);
   visibility("remove", testBtn);
   let findPassword = false;
   let i = 0;
@@ -27,27 +27,45 @@ const checkPassword = async (findPassword, i) => {
     const text = document.createElement("h1");
     text.setAttribute("id", "value");
     text.innerHTML = dataBase[i];
-    const contentBox = document.getElementById("content");
-    contentBox.appendChild(text);
-    await sleep(100);
+    const valueBox = document.getElementById("value-box");
+    valueBox.appendChild(text);
+    await sleep(10);
     if (password.value == dataBase[i]) {
-        text.style.backgroundColor = "#CC0202"
-        findPassword = true;
-    }
-    else if (i == dataBase.length) {
-        findPassword = true;
-    }
-    else {
-      contentBox.removeChild(text);
+      text.style.backgroundColor = "#CC0202";
+      findPassword = true;
+    } else if (i == dataBase.length) {
+      text.style.backgroundColor = "#CC0202";
+      findPassword = true;
+    } else {
+      valueBox.removeChild(text);
       i++;
     }
   }
-  await sleep(5000);
-  const text = document.getElementById("value");
-  const contentBox = document.getElementById("content")
-  contentBox.removeChild(text);
-  visibility("show", testBtn);
-  
+  if (i < dataBase.length) {
+    const text = document.getElementById("value");
+    const badPwd = document.createElement("h1");
+    badPwd.innerHTML = `${dataBase[i]}`;
+    text.style.color = "#fff";
+    text.style.width = "500px";
+    text.innerHTML = "Sua senha não é segura!";
+    text.appendChild(badPwd);
+    await sleep(5000);
+    const valueBox = document.getElementById("value-box");
+    valueBox.removeChild(text);
+    visibility("show", testBtn);
+  } else {
+    const text = document.getElementById("value");
+    const goodPwd = document.createElement("h1");
+    goodPwd.innerHTML = password.value;
+    text.style.backgroundColor = "#18B4AE";
+    text.style.width = "500px";
+    text.innerHTML = "Parabéns, sua senha é segura!";
+    text.appendChild(goodPwd);
+    await sleep(5000);
+    const valueBox = document.getElementById("value-box");
+    valueBox.removeChild(text);
+    visibility("show", testBtn);
+  }
 };
 
 //data base
