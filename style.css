@@ -12,6 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    font-size: 32px;
 }
 
 .navbar {
@@ -20,16 +21,17 @@ body {
     align-items: center;
     padding: 8px 200px;
     gap: 16px;
+    height: 100px;
 }
 
 .logo {
-    height: 42px;
-    width: 42px;
+    height: 80px;
+    width: 80px;
 }
 
 .logo-home {
-    height: 20px;
-    width: 20px;
+    height: 35px;
+    width: 35px;
 }
 
 .navbar h3 {
@@ -46,6 +48,7 @@ body {
     display: flex;
     gap: 5px;
     margin-left: auto;
+    align-items: center;
 }
  
 ul {
@@ -62,6 +65,13 @@ a {
     gap: 10px;
     justify-content: center;
     align-items: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .hide {
@@ -84,7 +94,7 @@ a {
     justify-content: center;
     gap: 10px;
     width: 100px;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
 }
 
@@ -92,13 +102,13 @@ button {
     background-color: #52667A;
     border: 1px solid #342E3F;
     color: #fff;
-    width: 80px;
-    height: 20px;
+    width: 120px;
+    height: 50px;
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 7px;
+    border-radius: 15px;
 }
 
 button:hover {
@@ -106,18 +116,22 @@ button:hover {
 }
 
 input {
-    height: 20px;
+    height: 40px;
+    padding: 5px;
+    width: 300px;
     border-radius: 5px;
-    border: 1px solid #000
+    border: 1px solid #000;
+    font-size: 26px;
 }
 
 .footer {
     background-color: #A3D292;
-    height: 20px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #F9FAF8;
     margin-top: auto;
     padding: 20px;
+    
 }
