@@ -58,6 +58,7 @@ const checkPassword = async (findPassword, i) => {
     const goodPwd = document.createElement("h1");
     goodPwd.innerHTML = password.value;
     text.style.backgroundColor = "#18B4AE";
+    text.style.color = "#fff";
     text.style.width = "500px";
     text.innerHTML = "Parabéns, sua senha é segura!";
     text.appendChild(goodPwd);

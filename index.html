@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Bruteforce simulator</title>
-</head>
-<body>
+  </head>
+  <body>
+    <!--HEADER-->
+    <div class="navbar">
+      <img class="logo" src="./img/book-icon.png" alt="logo" />
+      <h3>Educação Livre</h3>
+      <div class="header-links">
+        <img
+          class="logo-home"
+          src="./img/arrow_forward_FILL1_wght600_GRAD0_opsz48.png"
+          alt="home-icon"
+        />
+        <a href="https://www.edulivre.org.br/">Site</a>
+      </div>
+    </div>
+
     <div id="content">
+      <form action="POST" method="post">
         <label for="password">Senha falsa:</label>
-        <input type="text" name="password" id="password">
-        <button id="test-btn">Teste</button>
+        <input type="text" name="password" id="password" />
+      </form>
+      <button id="test-btn">Teste</button>
     </div>
     <div id="value-box"></div>
-</body>
-<script src="main.js"></script>
+
+    <!--Footer-->
+    <div class="footer">
+      <h4>Copyright &copy; Gab Zanini 2022</h4>
+    </div>
+  </body>
+  <script src="main.js"></script>
 </html>
