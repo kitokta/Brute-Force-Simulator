@@ -45,6 +45,7 @@ const checkPassword = async (findPassword, i) => {
     const text = document.getElementById("value");
     const badPwd = document.createElement("h1");
     badPwd.innerHTML = `${dataBase[i]}`;
+    badPwd.style.fontSize = "36px"
     text.style.color = "#fff";
     text.style.width = "500px";
     text.innerHTML = "Sua senha não é segura!";
@@ -57,6 +58,7 @@ const checkPassword = async (findPassword, i) => {
     const text = document.getElementById("value");
     const goodPwd = document.createElement("h1");
     goodPwd.innerHTML = password.value;
+    goodPwd.style.fontSize = "36px"
     text.style.backgroundColor = "#18B4AE";
     text.style.color = "#fff";
     text.style.width = "500px";

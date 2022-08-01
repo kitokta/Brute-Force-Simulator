@@ -80,7 +80,7 @@ form {
 }
 
 #value-box {
-    width: 500px;
+    max-width: 750px;
     display: flex;
     justify-content: center;
     align-items: center;
