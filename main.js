@@ -4,13 +4,16 @@ const password = document.getElementById("password");
 
 testBtn.addEventListener("click", () => {
   const text = document.getElementById("value");
-  if (text != null) contentBox.removeChild(text);
-  visibility("remove", testBtn);
-  let findPassword = false;
-  let i = 0;
-  checkPassword(findPassword, i);
+  if (password.value.length < 1) {
+    warning("error");
+  } else {
+    if (text != null) contentBox.removeChild(text);
+    visibility("remove", testBtn);
+    let findPassword = false;
+    let i = 0;
+    checkPassword(findPassword, i);
+  }
 });
-
 const sleep = (milliseconds) => {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 };
@@ -21,6 +24,22 @@ function visibility(event, element) {
     : element.classList.add("hide");
 }
 
+async function warning(type) {
+  if (type == "error") {
+    visibility("remove", testBtn);
+    const warning = document.createElement("h1");
+    warning.setAttribute("id", "value");
+    warning.style.color = "#fff";
+    warning.style.width = "500px";
+    warning.style.backgroundColor = "#CC0202";
+    warning.innerHTML = "Por favor, digite uma senha!";
+    const valueBox = document.getElementById("value-box");
+    valueBox.appendChild(warning);
+    await sleep(3000);
+    valueBox.removeChild(warning);
+    visibility("show", testBtn);
+  }
+}
 const checkPassword = async (findPassword, i) => {
   while (findPassword == false) {
     const text = document.createElement("h1");
@@ -69,6 +88,9 @@ const checkPassword = async (findPassword, i) => {
     text.style.color = "#fff";
     text.style.width = "500px";
     text.innerHTML = "Parabéns, sua senha é segura!";
+    if (password.value.length < 8) {
+      text.innerHTML+= " Mas tente adicionar mais caracteres!"
+    }
     text.appendChild(goodPwd);
     await sleep(5000);
     const valueBox = document.getElementById("value-box");
