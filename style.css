@@ -92,6 +92,7 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     gap: 10px;
     width: 100px;
     border-radius: 10px;

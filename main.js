@@ -4,7 +4,6 @@ const password = document.getElementById("password");
 
 testBtn.addEventListener("click", () => {
   const text = document.getElementById("value");
-  const valueBox = document.getElementById("value-box");
   if (text != null) contentBox.removeChild(text);
   visibility("remove", testBtn);
   let findPassword = false;
@@ -45,11 +44,18 @@ const checkPassword = async (findPassword, i) => {
     const text = document.getElementById("value");
     const badPwd = document.createElement("h1");
     badPwd.innerHTML = `${dataBase[i]}`;
-    badPwd.style.fontSize = "36px"
+    badPwd.style.fontSize = "36px";
     text.style.color = "#fff";
     text.style.width = "500px";
     text.innerHTML = "Sua senha não é segura!";
     text.appendChild(badPwd);
+    if (password.value.length < 8) {
+      const warning = document.createElement("h1");
+      warning.style.fontSize = "48px";
+      warning.innerHTML = "Tente uma senha com mais de 8 caracteres!"
+      badPwd.appendChild(warning);
+    }
+    
     await sleep(5000);
     const valueBox = document.getElementById("value-box");
     valueBox.removeChild(text);
@@ -58,7 +64,7 @@ const checkPassword = async (findPassword, i) => {
     const text = document.getElementById("value");
     const goodPwd = document.createElement("h1");
     goodPwd.innerHTML = password.value;
-    goodPwd.style.fontSize = "36px"
+    goodPwd.style.fontSize = "36px";
     text.style.backgroundColor = "#18B4AE";
     text.style.color = "#fff";
     text.style.width = "500px";
