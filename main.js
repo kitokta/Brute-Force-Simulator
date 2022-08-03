@@ -1,29 +1,38 @@
-//import { dataBase, name } from "./modules/pwdDataBase.mjs";
+//import { dataBase} from "./modules/pwdDataBase.mjs";
+import { dataBase } from "/database.js";
+
 const testBtn = document.getElementById("test-btn");
 const password = document.getElementById("password");
 
+//Test button eventlistener
 testBtn.addEventListener("click", () => {
   const text = document.getElementById("value");
+  //Warning if no password has been writeen
   if (password.value.length < 1) {
     warning("error");
   } else {
     if (text != null) contentBox.removeChild(text);
+    //Remove test button while looping and testing the database array
     visibility("remove", testBtn);
     let findPassword = false;
     let i = 0;
     checkPassword(findPassword, i);
   }
 });
+
+//sleep function to use in async function
 const sleep = (milliseconds) => {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 };
 
+//Visibility function to show or hide some element
 function visibility(event, element) {
   event == "show"
     ? element.classList.remove("hide")
     : element.classList.add("hide");
 }
 
+//Warning function to write a password
 async function warning(type) {
   if (type == "error") {
     visibility("remove", testBtn);
@@ -40,6 +49,8 @@ async function warning(type) {
     visibility("show", testBtn);
   }
 }
+
+//checkPassword async function, it iterate through each dataBase index every 10 miliseconds
 const checkPassword = async (findPassword, i) => {
   while (findPassword == false) {
     const text = document.createElement("h1");
@@ -48,6 +59,7 @@ const checkPassword = async (findPassword, i) => {
     const valueBox = document.getElementById("value-box");
     valueBox.appendChild(text);
     await sleep(10);
+    //If it finds the password, ends the loop
     if (password.value == dataBase[i]) {
       text.style.backgroundColor = "#CC0202";
       findPassword = true;
@@ -59,6 +71,7 @@ const checkPassword = async (findPassword, i) => {
       i++;
     }
   }
+  //If the password is found in the dataBase array, it isnt safe.
   if (i < dataBase.length) {
     const text = document.getElementById("value");
     const badPwd = document.createElement("h1");
@@ -68,18 +81,21 @@ const checkPassword = async (findPassword, i) => {
     text.style.width = "500px";
     text.innerHTML = "Sua senha não é segura!";
     text.appendChild(badPwd);
+    //Try a password with 8 or more characters tip
     if (password.value.length < 8) {
       const warning = document.createElement("h1");
       warning.style.fontSize = "48px";
-      warning.innerHTML = "Tente uma senha com mais de 8 caracteres!"
+      warning.innerHTML = "Tente uma senha com mais de 8 caracteres!";
       badPwd.appendChild(warning);
     }
-    
+    //await 5 seconds before cleaning the screen
     await sleep(5000);
     const valueBox = document.getElementById("value-box");
     valueBox.removeChild(text);
     visibility("show", testBtn);
-  } else {
+  }
+  //If password is safe:
+  else {
     const text = document.getElementById("value");
     const goodPwd = document.createElement("h1");
     goodPwd.innerHTML = password.value;
@@ -88,8 +104,9 @@ const checkPassword = async (findPassword, i) => {
     text.style.color = "#fff";
     text.style.width = "500px";
     text.innerHTML = "Parabéns, sua senha é segura!";
+    //We check here too for a <8 characters password, so we can tip for a more consistent one.
     if (password.value.length < 8) {
-      text.innerHTML+= " Mas tente adicionar mais caracteres!"
+      text.innerHTML += " Mas tente adicionar mais caracteres!";
     }
     text.appendChild(goodPwd);
     await sleep(5000);
@@ -98,4 +115,3 @@ const checkPassword = async (findPassword, i) => {
     visibility("show", testBtn);
   }
 };
-

@@ -1,5 +1,5 @@
 //data base
-const dataBase = [
+export const dataBase = [
   ["12345"],
   ["101010"],
   ["111111"],
