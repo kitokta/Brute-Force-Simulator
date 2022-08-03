@@ -20,7 +20,7 @@ testBtn.addEventListener("click", () => {
   }
 });
 
-//sleep function to use in async function
+//sleep function to use in async function(promise)
 const sleep = (milliseconds) => {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 };
