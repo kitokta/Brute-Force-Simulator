@@ -1,5 +1,5 @@
 //import { dataBase} from "./modules/pwdDataBase.mjs";
-import { dataBase } from "/database.js";
+import { dataBase } from "./modules/database.js";
 
 const testBtn = document.getElementById("test-btn");
 const password = document.getElementById("password");
