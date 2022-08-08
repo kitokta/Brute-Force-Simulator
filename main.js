@@ -5,7 +5,8 @@ const testBtn = document.getElementById("test-btn");
 const password = document.getElementById("password");
 
 //Test button eventlistener
-testBtn.addEventListener("click", () => {
+testBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   const text = document.getElementById("value");
   //Warning if no password has been writeen
   if (password.value.length < 1) {
