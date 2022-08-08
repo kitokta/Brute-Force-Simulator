@@ -58,7 +58,7 @@ const checkPassword = async (findPassword, i) => {
     text.innerHTML = dataBase[i];
     const valueBox = document.getElementById("value-box");
     valueBox.appendChild(text);
-    await sleep(10);
+    await sleep(5);
     //If it finds the password, ends the loop
     if (password.value == dataBase[i]) {
       text.style.backgroundColor = "#CC0202";
